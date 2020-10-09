@@ -11,16 +11,15 @@ class Bot
       case message.text
       when '/start'
 
-        bot.api.send_message(chat_id: message.chat.id, text: "Hello, #{message.from.first_name} , welcome to motivation chat bot created by peter robert, the chat bot is to keep you motivated and entertained. Use  /start to start the bot,  /stop to end the bot, /motivate to get a diffrent motivational quote everytime you request for it or /joke to get a joke everytime you request for it")
+        bot.api.send_message(chat_id: message.chat.id, text: "Hello, #{message.from.first_name} , welcome back! I hope your adventures are going well! Use  /start to start the bot,  /stop to end the bot or /random to get information about a random pokemon!")
 
       when '/stop'
 
         bot.api.send_message(chat_id: message.chat.id, text: "Bye, #{message.from.first_name}", date: message.date)
-      when '/motivate'
-        values = Motivate.new
-        value = values.select_random
-        bot.api.send_message(chat_id: message.chat.id, text: "#{value['text']}", date: message.date)
-      else bot.api.send_message(chat_id: message.chat.id, text: "Invalid entry, #{message.from.first_name}, you need to use  /start,  /stop , /motivate or /joke")
+
+      when '/random'
+        bot.api.send_message(chat_id: message.chat.id, text: "#{Motivate.new.random_pokemon}", date: message.date)
+      else bot.api.send_message(chat_id: message.chat.id, text: "Invalid entry, #{message.from.first_name}, you need to use  /start,  /stop or /motivate")
       end
     end
   end
