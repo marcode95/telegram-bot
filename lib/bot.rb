@@ -1,5 +1,6 @@
 require 'telegram/bot'
-require_relative 'motivate.rb'
+require_relative 'reader.rb'
+require_relative 'processor.rb'
 
 
 class Bot
@@ -18,7 +19,8 @@ class Bot
         bot.api.send_message(chat_id: message.chat.id, text: "Bye, #{message.from.first_name}", date: message.date)
 
       when '/random'
-        bot.api.send_message(chat_id: message.chat.id, text: "#{Motivate.new.random_pokemon}", date: message.date)
+
+        bot.api.send_message(chat_id: message.chat.id, text: "#{Processor.new.random_pkmn}", date: message.date)
       else bot.api.send_message(chat_id: message.chat.id, text: "Invalid entry, #{message.from.first_name}, you need to use  /start,  /stop or /motivate")
       end
     end
