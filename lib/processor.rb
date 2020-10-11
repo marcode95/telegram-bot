@@ -2,8 +2,8 @@ require_relative 'reader.rb'
 
 class Processor 
 
+
   def find_pkmn(index=rand(150))
-    
     image = "https://pokeres.bastionbot.org/images/pokemon/#{index+1}.png"
     name = Reader.new.all_pkmn_data["results"][index]["name"].capitalize
     number = index+1
@@ -18,4 +18,5 @@ end
 
 
 
-puts Processor.new.find_pkmn
+#puts Processor.new.find_pkmn.split('Name:').first
+

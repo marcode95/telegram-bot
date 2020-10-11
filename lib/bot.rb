@@ -24,9 +24,9 @@ class Bot
         bot.api.send_message(chat_id: message.chat.id, text: "If you want information about a random Pokemon use /random! If you want information about a specific Pokemon like f.e. Pikachu use /poke_pikachu! If you want a list of all Pokemon of a specific type like f.e. water use /type_water!")
 
       when message.text == '/random'
-        
-        bot.api.send_photo(chat_id: message.chat.id, photo: "https://pokeres.bastionbot.org/images/pokemon/1.png", date: message.date)
-        bot.api.send_message(chat_id: message.chat.id, text: "#{Processor.new.find_pkmn}", date: message.date)
+        random_pkmn = Processor.new.find_pkmn
+        bot.api.send_photo(chat_id: message.chat.id, photo: "#{random_pkmn.split('Name:').first}", date: message.date)
+        bot.api.send_message(chat_id: message.chat.id, text: "#{random_pkmn.split('png').last}", date: message.date)
 
       when message.text.include?('/poke_')
         pkmn_index = Searcher.new.find_index(message.text)
