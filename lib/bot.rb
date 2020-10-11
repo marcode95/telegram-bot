@@ -14,13 +14,14 @@ class Bot
       when message.text == '/hey'
         basic_keyboard = [[Telegram::Bot::Types::KeyboardButton.new(text: '/hey')],
                           [Telegram::Bot::Types::KeyboardButton.new(text: '/info')],
+                          [Telegram::Bot::Types::KeyboardButton.new(text: '/random')],
                           [Telegram::Bot::Types::KeyboardButton.new(text: '/bye')]]
 
-        bot.api.sendMessage(chat_id: message.chat.id, text: "Hello, #{message.from.first_name} , welcome back! I hope your adventures are going well! Use /hey if you want to have chat, /info to get information about Pokemon or /bye if you want to leave!", reply_markup: Telegram::Bot::Types::ReplyKeyboardMarkup.new(keyboard: basic_keyboard))
+        bot.api.sendAnimation(chat_id: message.chat.id, animation: "https://media.giphy.com/media/whcXjQYrQWfF11l85q/giphy.gif", reply_markup: Telegram::Bot::Types::ReplyKeyboardMarkup.new(keyboard: basic_keyboard))
 
       when message.text == '/bye'
 
-        bot.api.sendMessage(chat_id: message.chat.id, text: "Bye, #{message.from.first_name}", date: message.date)
+        bot.api.sendAnimation(chat_id: message.chat.id, animation: "https://media.giphy.com/media/ALV6n8JJdFA7X9RayA/giphy.gif", date: message.date)
 
       when message.text == '/info'
 
