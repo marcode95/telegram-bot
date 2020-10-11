@@ -11,15 +11,14 @@ class Bot
   Telegram::Bot::Client.run(token) do |bot|
     bot.listen do |message|
       case
-      when message.text == '/start'
-        kb = [[Telegram::Bot::Types::InlineKeyboardButton.new(text: 'Show me your location', callback_data: 'HElist8' )],
-             [Telegram::Bot::Types::InlineKeyboardButton.new(text: 'asfjhasdöfasdf', callback_data: 'asdfasdf' )]]
-        markup = Telegram::Bot::Types::InlineKeyboardMarkup.new(inline_keyboard: kb)
-        bot.api.send_message(chat_id: message.chat.id, text: 'Hey!', reply_markup: markup)
+      when message.text == '/hey'
+        basic_keyboard = [[Telegram::Bot::Types::KeyboardButton.new(text: '/hey')],
+                          [Telegram::Bot::Types::KeyboardButton.new(text: '/info')],
+                          [Telegram::Bot::Types::KeyboardButton.new(text: '/bye')]]
 
-        # bot.api.sendMessage(chat_id: message.chat.id, text: "Hello, #{message.from.first_name} , welcome back! I hope your adventures are going well! Use  /hi if you want to chat,  /bye if you want to leave or /info to get information about pokemon!")
+        bot.api.sendMessage(chat_id: message.chat.id, text: "Hello, #{message.from.first_name} , welcome back! I hope your adventures are going well! Use /hey if you want to have chat, /info to get information about Pokemon or /bye if you want to leave!", reply_markup: Telegram::Bot::Types::ReplyKeyboardMarkup.new(keyboard: basic_keyboard))
 
-      when message.text == '/stop'
+      when message.text == '/bye'
 
         bot.api.sendMessage(chat_id: message.chat.id, text: "Bye, #{message.from.first_name}", date: message.date)
 
