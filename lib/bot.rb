@@ -25,6 +25,7 @@ class Bot
 
       when message.text == '/random'
         
+        bot.api.send_photo(chat_id: message.chat.id, photo: "https://pokeres.bastionbot.org/images/pokemon/1.png", date: message.date)
         bot.api.send_message(chat_id: message.chat.id, text: "#{Processor.new.find_pkmn}", date: message.date)
 
       when message.text.include?('/poke_')

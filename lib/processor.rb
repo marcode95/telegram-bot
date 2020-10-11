@@ -16,3 +16,6 @@ class Processor
   end
 end
 
+
+
+puts Processor.new.find_pkmn
