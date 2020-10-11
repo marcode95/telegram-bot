@@ -28,7 +28,3 @@ class Reader
 end
 
 
-
-puts bla = Reader.new.description_data(1)["flavor_text_entries"][0]["flavor_text"]
-puts bla.gsub("\n", ' ').gsub("\f", ' ')
-
