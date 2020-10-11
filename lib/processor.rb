@@ -17,6 +17,3 @@ class Processor
 end
 
 
-
-#puts Processor.new.find_pkmn.split('Name:').first
-
