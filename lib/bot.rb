@@ -29,7 +29,12 @@ class Bot
 
       when message.text.include?('/poke_')
         pkmn_index = Searcher.new.find_index(message.text)
-        bot.api.send_message(chat_id: message.chat.id, text: "#{Processor.new.find_pkmn(pkmn_index-1)}", date: message.date)
+        
+        if pkmn_index != (0..150) 
+          bot.api.send_message(chat_id: message.chat.id, text: "#{Processor.new.find_pkmn(pkmn_index-1)}", date: message.date)
+        else
+          bot.api.send_message(chat_id: message.chat.id, text: "Hm.. I can't recall a first generation Pokemon with that name. Are you sure it's on this list? https://en.wikipedia.org/wiki/List_of_generation_I_Pok%C3%A9mon", date: message.date)
+        end
 
       when message.text == '/type_'
         
