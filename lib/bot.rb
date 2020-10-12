@@ -43,8 +43,7 @@ class Bot
           bot.api.sendMessage(chat_id: message.chat.id, text:"Name: #{random_pkmn.name}\nNumber: #{random_pkmn.number}\nType: #{random_pkmn.types}\nDescription: #{random_pkmn.description}", date: message.date)
 
         elsif message.text.include?('/poke_')
-          pkmn_index = Searcher.new.find_index(message.text)
-
+          pkmn_index = Searcher.new(message.text).find_index
           if pkmn_index != (0..150)
             certain_pkmn = Processor.new(pkmn_index - 1)
             bot.api.sendChatAction(chat_id: message.chat.id, action: 'upload_photo', date: message.date)
