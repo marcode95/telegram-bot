@@ -1,7 +1,6 @@
 require 'telegram/bot'
 require 'net/http'
 require 'json'
-# require_relative 'bot.rb'
 
 class Reader
   def all_pkmn_data
