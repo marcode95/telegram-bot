@@ -15,7 +15,7 @@ Ruby implementation of a Telegram Bot giving out information about the first 151
 ## Getting Started
 
 **Step 1**<br>
-Clone the repo to a local folder of your choice <br>
+Clone the repo to a local folder <br>
 `git clone https://github.com/marcode95/telegram-bot/tree/feature`<br>
 **Step 2**<br>
 Run `cd telegram-bot`<br>
