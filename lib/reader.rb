@@ -1,7 +1,7 @@
 require 'telegram/bot'
 require 'net/http'
 require 'json'
-#require_relative 'bot.rb'
+# require_relative 'bot.rb'
 
 class Reader
   def all_pkmn_data
@@ -11,6 +11,7 @@ class Reader
     response = JSON.parse(response)
     response
   end
+
   def one_pkmn_data(pkmn_index)
     url = "https://pokeapi.co/api/v2/pokemon/#{pkmn_index}"
     uri = URI(url)
@@ -18,6 +19,7 @@ class Reader
     response = JSON.parse(response)
     response
   end
+
   def description_data(pkmn_index)
     url = "https://pokeapi.co/api/v2/pokemon-species/#{pkmn_index}"
     uri = URI(url)
@@ -26,6 +28,3 @@ class Reader
     response
   end
 end
-
-
-
