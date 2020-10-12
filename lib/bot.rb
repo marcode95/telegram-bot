@@ -37,21 +37,19 @@ class Bot
           # rubocop:enable Layout/LineLength
 
         elsif message.text == '/random'
-          random_pkmn = Processor.new.find_pkmn
+          random_pkmn = Processor.new(rand(0..150))
           bot.api.sendChatAction(chat_id: message.chat.id, action: 'upload_photo', date: message.date)
-          bot.api.sendPhoto(chat_id: message.chat.id, photo: random_pkmn.split('Name:').first.to_s, date: message.date)
-          bot.api.sendMessage(chat_id: message.chat.id, text: random_pkmn.split('png').last.to_s, date: message.date)
+          bot.api.sendPhoto(chat_id: message.chat.id, photo: random_pkmn.image_link, date: message.date)
+          bot.api.sendMessage(chat_id: message.chat.id, text:"Name: #{random_pkmn.name}\nNumber: #{random_pkmn.number}\nType: #{random_pkmn.types}\nDescription: #{random_pkmn.description}", date: message.date)
 
         elsif message.text.include?('/poke_')
           pkmn_index = Searcher.new.find_index(message.text)
 
           if pkmn_index != (0..150)
-            certain_pkmn = Processor.new.find_pkmn(pkmn_index - 1)
+            certain_pkmn = Processor.new(pkmn_index - 1)
             bot.api.sendChatAction(chat_id: message.chat.id, action: 'upload_photo', date: message.date)
-            bot.api.send_photo(chat_id: message.chat.id,
-                               photo: certain_pkmn.split('Name:').first.to_s,
-                               date: message.date)
-            bot.api.sendMessage(chat_id: message.chat.id, text: certain_pkmn.split('png').last.to_s, date: message.date)
+            bot.api.sendPhoto(chat_id: message.chat.id, photo: certain_pkmn.image_link, date: message.date)
+            bot.api.sendMessage(chat_id: message.chat.id, text:"Name: #{certain_pkmn.name}\nNumber: #{certain_pkmn.number}\nType: #{certain_pkmn.types}\nDescription: #{certain_pkmn.description}", date: message.date)
           else
             bot.api.sendMessage(chat_id: message.chat.id,
                                 text: "Hm.. I can't recall a first generation Pokemon with that name. Are you
