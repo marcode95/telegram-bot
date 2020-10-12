@@ -2,7 +2,7 @@ require 'telegram/bot'
 require_relative 'reader.rb'
 require_relative 'searcher.rb'
 require_relative 'processor.rb'
-require_relative 'config.rb'
+require_relative '../config.rb'
 
 class Bot
   # rubocop:disable Metrics/AbcSize
