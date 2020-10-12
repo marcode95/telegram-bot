@@ -10,6 +10,7 @@ class Bot
   # rubocop:disable Metrics/PerceivedComplexity
   # rubocop:disable Metrics/BlockLength
   # rubocop:disable Layout/LineLength
+  # rubocop:disable Metrics/CyclomaticComplexity
   def initialize
     token = Token.new.token
 
@@ -60,6 +61,7 @@ class Bot
       end
     end
   end
+  # rubocop:enable Metrics/CyclomaticComplexity
   # rubocop:enable Layout/LineLength
   # rubocop:enable Metrics/BlockLength
   # rubocop:enable Metrics/AbcSize
