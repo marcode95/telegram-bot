@@ -9,6 +9,7 @@ class Bot
   # rubocop:disable Metrics/MethodLength
   # rubocop:disable Metrics/PerceivedComplexity
   # rubocop:disable Metrics/BlockLength
+  # rubocop:disable Layout/LineLength
   def initialize
     token = Token.new.token
 
@@ -25,35 +26,30 @@ class Bot
                                 reply_markup: Telegram::Bot::Types::ReplyKeyboardMarkup.new(keyboard: basic_keyboard))
 
         elsif message.text == '/bye'
-
           bot.api.sendAnimation(chat_id: message.chat.id,
                                 animation: 'https://media.giphy.com/media/ALV6n8JJdFA7X9RayA/giphy.gif',
                                 date: message.date)
 
         elsif message.text == '/info'
-          # rubocop:disable Layout/LineLength
           bot.api.sendMessage(chat_id: message.chat.id,
                               text: 'If you want information about a random Pokemon use /random! If you want information about a specific Pokemon like f.e. Bulbasaur or Charmander use /poke_bulbasaur or /poke_charmander!')
-          # rubocop:enable Layout/LineLength
 
         elsif message.text == '/random'
           random_pkmn = Processor.new(rand(0..150))
-          bot.api.sendChatAction(chat_id: message.chat.id, action: 'upload_photo', date: message.date)
+          bot.api.sendChatAction(chat_id: message.chat.id, action: 'typing', date: message.date)
           bot.api.sendPhoto(chat_id: message.chat.id, photo: random_pkmn.image_link, date: message.date)
-          bot.api.sendMessage(chat_id: message.chat.id, text:"Name: #{random_pkmn.name}\nNumber: #{random_pkmn.number}\nType: #{random_pkmn.types}\nDescription: #{random_pkmn.description}", date: message.date)
+          bot.api.sendMessage(chat_id: message.chat.id, text: "Name: #{random_pkmn.name}\nNumber: #{random_pkmn.number}\nType: #{random_pkmn.types}\nDescription: #{random_pkmn.description}", date: message.date)
 
         elsif message.text.include?('/poke_')
           pkmn_index = Searcher.new(message.text).find_index
-          if pkmn_index != (0..150)
+          if pkmn_index.is_a?(Integer)
             certain_pkmn = Processor.new(pkmn_index - 1)
-            bot.api.sendChatAction(chat_id: message.chat.id, action: 'upload_photo', date: message.date)
+            bot.api.sendChatAction(chat_id: message.chat.id, action: 'typing', date: message.date)
             bot.api.sendPhoto(chat_id: message.chat.id, photo: certain_pkmn.image_link, date: message.date)
-            bot.api.sendMessage(chat_id: message.chat.id, text:"Name: #{certain_pkmn.name}\nNumber: #{certain_pkmn.number}\nType: #{certain_pkmn.types}\nDescription: #{certain_pkmn.description}", date: message.date)
+            bot.api.sendMessage(chat_id: message.chat.id, text: "Name: #{certain_pkmn.name}\nNumber: #{certain_pkmn.number}\nType: #{certain_pkmn.types}\nDescription: #{certain_pkmn.description}", date: message.date)
           else
             bot.api.sendMessage(chat_id: message.chat.id,
-                                text: "Hm.. I can't recall a first generation Pokemon with that name. Are you
-                                      sure it's on this list?
-                                      https://en.wikipedia.org/wiki/List_of_generation_I_Pok%C3%A9mon",
+                                text: "Hm.. I can't recall a first generation Pokemon with that name. Are you sure it's on this list? https://en.wikipedia.org/wiki/List_of_generation_I_Pok%C3%A9mon",
                                 date: message.date)
           end
 
@@ -64,6 +60,7 @@ class Bot
       end
     end
   end
+  # rubocop:enable Layout/LineLength
   # rubocop:enable Metrics/BlockLength
   # rubocop:enable Metrics/AbcSize
   # rubocop:enable Metrics/MethodLength
