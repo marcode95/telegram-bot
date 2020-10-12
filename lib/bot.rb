@@ -30,9 +30,10 @@ class Bot
                                 date: message.date)
 
         elsif message.text == '/info'
-
+          # rubocop:disable Layout/LineLength
           bot.api.sendMessage(chat_id: message.chat.id,
                               text: 'If you want information about a random Pokemon use /random! If you want information about a specific Pokemon like f.e. Bulbasaur or Charmander use /poke_bulbasaur or /poke_charmander!')
+          # rubocop:enable Layout/LineLength
 
         elsif message.text == '/random'
           random_pkmn = Processor.new.find_pkmn
