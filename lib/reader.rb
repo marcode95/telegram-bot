@@ -27,3 +27,11 @@ class Reader
     response
   end
 end
+
+test = Reader.new.description_data(25)
+for i in 0..2 do
+  if test['flavor_text_entries'][i]['language']['name'] == 'en'
+    puts test['flavor_text_entries'][i]['flavor_text']
+    break
+  end
+end
