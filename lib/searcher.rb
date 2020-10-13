@@ -8,8 +8,12 @@ class Searcher
   def find_index
     @pkmn_name.slice!('/poke_')
     results = Reader.new.all_pkmn_data['results']
+    index = nil
     (0..150).each do |i|
-      return i + 1 if results[i]['name'] == @pkmn_name
+      index = i + 1 if results[i]['name'] == @pkmn_name
     end
+    index
   end
 end
+
+p Searcher.new('/poke_pikachu').find_index

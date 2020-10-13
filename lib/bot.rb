@@ -5,12 +5,12 @@ require_relative 'processor.rb'
 require_relative '../config.rb'
 
 class Bot
-  # rubocop:disable Metrics/AbcSize
-  # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Metrics/PerceivedComplexity
-  # rubocop:disable Metrics/BlockLength
-  # rubocop:disable Layout/LineLength
-  # rubocop:disable Metrics/CyclomaticComplexity
+  # rubcop:disable Metrics/AbcSize
+  # rubcop:disable Metrics/MethodLength
+  # rubcop:disable Metrics/PerceivedComplexity
+  # rubcop:disable Metrics/BlockLength
+  # rubcop:disable Layout/LineLength
+  # rubcop:disable Metrics/CyclomaticComplexity
   def initialize
     token = Token.new.token
 
@@ -61,10 +61,10 @@ class Bot
       end
     end
   end
-  # rubocop:enable Metrics/CyclomaticComplexity
-  # rubocop:enable Layout/LineLength
-  # rubocop:enable Metrics/BlockLength
-  # rubocop:enable Metrics/AbcSize
-  # rubocop:enable Metrics/MethodLength
-  # rubocop:enable Metrics/PerceivedComplexity
+  # rubcop:enable Metrics/CyclomaticComplexity
+  # rubcop:enable Layout/LineLength
+  # rubcop:enable Metrics/BlockLength
+  # rubcop:enable Metrics/AbcSize
+  # rubcop:enable Metrics/MethodLength
+  # rubcop:enable Metrics/PerceivedComplexity
 end

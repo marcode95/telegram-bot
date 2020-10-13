@@ -15,6 +15,14 @@ describe Processor do
       expect(testtwo.name).not_to eql('pikachu')
     end
   end
+  describe '#link' do
+    it 'returns link of picture of pokemon' do
+      expect(testone.image_link).to eql("https://pokeres.bastionbot.org/images/pokemon/2.png")
+    end
+    it 'returns link of picture of pokemon' do
+      expect(testtwo.image_link).to eql("https://pokeres.bastionbot.org/images/pokemon/25.png")
+    end
+  end
   describe '#number' do
     it 'returns number of pokemon' do
       expect(testone.number).to eql(2)
@@ -36,10 +44,10 @@ describe Processor do
   end
   # rubocop:disable Layout/LineLength
   describe '#description' do
-    it 'returns type of pokemon' do
+    it 'returns description of pokemon' do
       expect(testone.description).to eql('When the bulb on its back grows large, it appears to lose the ability to stand on its hind legs.')
     end
-    it 'returns type of pokemon' do
+    it 'returns description of pokemon' do
       expect(testtwo.description).to eql('When several of these POKéMON gather, their electricity could build and cause lightning storms.')
     end
   end
