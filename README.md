@@ -30,7 +30,7 @@ Press /start to start the conversation and /newbot to create a new bot (just fol
 **Step 6**<br>
 Go to lib/bot.rb, put your token into quotation marks to turn it into a string and replace Token.new.token in line 14 with it. Line 14 should look something like this afterwards:  token = '1347431199:AAH4hPt6PDiJB4swk23Lb4oOzwocjKpba0S4'<br>
 **Step 7**<br>
-Delete line 5 "require_relative '../config.rb'<br>
+Delete line 5 "require_relative '../config.rb'"<br>
 **Step 8**<br>
 Run `ruby ./bin/main.rb` to start the bot.<br>
 **Step 9**<br>

@@ -17,10 +17,10 @@ describe Processor do
   end
   describe '#link' do
     it 'returns link of picture of pokemon' do
-      expect(testone.image_link).to eql("https://pokeres.bastionbot.org/images/pokemon/2.png")
+      expect(testone.image_link).to eql('https://pokeres.bastionbot.org/images/pokemon/2.png')
     end
     it 'returns link of picture of pokemon' do
-      expect(testtwo.image_link).to eql("https://pokeres.bastionbot.org/images/pokemon/25.png")
+      expect(testtwo.image_link).to eql('https://pokeres.bastionbot.org/images/pokemon/25.png')
     end
   end
   describe '#number' do
