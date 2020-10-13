@@ -16,4 +16,3 @@ class Searcher
   end
 end
 
-p Searcher.new('/poke_pikachu').find_index
