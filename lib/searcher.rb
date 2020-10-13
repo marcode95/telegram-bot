@@ -15,4 +15,3 @@ class Searcher
     index
   end
 end
-
