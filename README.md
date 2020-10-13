@@ -40,11 +40,11 @@ Type /hey to start and enjoy!
 
 ## Commands
 
-- /hey will start the bot
-- /info will give you information about the abilities of the bot
-- /random will give out information about a random pokemon
-- /poke_nameofpokemon will give out information about a certain Pokemon of the first generation: https://en.wikipedia.org/wiki/List_of_generation_I_Pok%C3%A9mon
-- /bye will end the bot
+- **/hey** will start the bot
+- **/info** will give you information about the abilities of the bot
+- **/random** will give out information about a random pokemon
+- **/poke_nameofpokemon** will give out information about a certain Pokemon of the first generation: https://en.wikipedia.org/wiki/List_of_generation_I_Pok%C3%A9mon
+- **/bye** will end the bot
 
 ## Prerequisites
 
