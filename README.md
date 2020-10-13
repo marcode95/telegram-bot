@@ -15,18 +15,28 @@ Ruby implementation of a Telegram Bot giving out information about the first 151
 ## Getting Started
 
 **Step 1**<br>
-Clone the repo to a local folder <br>
-`git clone https://github.com/marcode95/telegram-bot/tree/feature`<br>
+Clone the repo to a local folder by inputting this command into your terminal<br>
+`git clone https://github.com/marcode95/telegram-bot`<br>
+and switch to the feature branch with this one<br>
+`git checkout feature`<br>
 **Step 2**<br>
 Run `cd telegram-bot`<br>
 **Step 3**<br>
 Run `bundle install` to install the gems from the `Gemfile`.<br>
 **Step 4**<br>
-Download the [Telegram app](https://desktop.telegram.org/), create an account and talk to the [Botfather](https://t.me/botfather). Follow the instructions and create a bot, you will then receive an API Token that looks like this: `1347431199:AAH4hPt6PDiJB4swk23Lb4oOzwocjKpba0S4` and the link it your bot in bot.rb line 14.<br>
+Download the [Telegram app](https://desktop.telegram.org/), create an account, search for a new contact named [Botfather](https://t.me/botfather).<br>
 **Step 5**<br>
-Run `ruby bin/bot.rb` to start the bot.<br>
+Press /start to start the conversation and /newbot to create a new bot (just follow the instructions). You will then receive an API Token that looks like this: 1347431199:AAH4hPt6PDiJB4swk23Lb4oOzwocjKpba0S4<br>
 **Step 6**<br>
-Open the link to the bot that you received from the Botfather.<br>
+Go to lib/bot.rb, put your token into quotation marks to turn it into a string and replace Token.new.token in line 14 with it. Line 14 should look something like this afterwards:  token = '1347431199:AAH4hPt6PDiJB4swk23Lb4oOzwocjKpba0S4'<br>
+**Step 7**<br>
+Delete line 5 "require_relative '../config.rb'<br>
+**Step 8**<br>
+Run `ruby ./bin/main.rb` to start the bot.<br>
+**Step 9**<br>
+After creating your bot in telegram Botfather should have provided you with a link to access it. Press it.<br>
+**Step 10**<br>
+Type /hey to start and enjoy!
 
 ## Commands
 
