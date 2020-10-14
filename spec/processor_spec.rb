@@ -42,14 +42,15 @@ describe Processor do
       expect(testtwo.types).not_to eql('electric')
     end
   end
-  # rubocop:disable Layout/LineLength
+
   describe '#description' do
     it 'returns description of pokemon' do
-      expect(testone.description).to eql('When the bulb on its back grows large, it appears to lose the ability to stand on its hind legs.')
+      expect(testone.description).to eql('When the bulb on its back grows large, it appears to lose the ability to'\
+      ' stand on its hind legs.')
     end
     it 'returns description of pokemon' do
-      expect(testtwo.description).to eql('When several of these POKéMON gather, their electricity could build and cause lightning storms.')
+      expect(testtwo.description).to eql('When several of these POKéMON gather, their electricity could build'\
+      ' and cause lightning storms.')
     end
   end
-  # rubocop:enable Layout/LineLength
 end

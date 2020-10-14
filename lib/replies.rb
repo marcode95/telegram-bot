@@ -1,6 +1,6 @@
 require_relative 'searcher.rb'
 require_relative 'processor.rb'
-# rubocop:disable Layout/LineLength
+
 module Replies
   def hey_reply(bot, message)
     basic_keyboard = [
@@ -23,14 +23,17 @@ module Replies
 
   def info_reply(bot, message)
     bot.api.sendMessage(chat_id: message.chat.id,
-                        text: 'If you want information about a random Pokemon use /random! If you want information about a specific Pokemon like f.e. Bulbasaur or Charmander use /poke_bulbasaur or /poke_charmander!')
+                        text: 'If you want information about a random Pokemon use /random! If you want information'\
+                        'about a specific Pokemon like f.e. Bulbasaur or Charmander use /poke_bulbasaur'\
+                        'or /poke_charmander!')
   end
 
   def random_reply(bot, message)
     random_pkmn = Processor.new(rand(0..150))
     bot.api.sendChatAction(chat_id: message.chat.id, action: 'typing', date: message.date)
     bot.api.sendPhoto(chat_id: message.chat.id, photo: random_pkmn.image_link, date: message.date)
-    bot.api.sendMessage(chat_id: message.chat.id, text: "Name: #{random_pkmn.name}\nNumber: #{random_pkmn.number}\nType: #{random_pkmn.types}\nDescription: #{random_pkmn.description}", date: message.date)
+    bot.api.sendMessage(chat_id: message.chat.id, text: "Name: #{random_pkmn.name}\nNumber: #{random_pkmn.number}\n"\
+    "Type: #{random_pkmn.types}\nDescription: #{random_pkmn.description}", date: message.date)
   end
 
   def certain_reply(bot, message)
@@ -39,10 +42,13 @@ module Replies
       certain_pkmn = Processor.new(pkmn_index - 1)
       bot.api.sendChatAction(chat_id: message.chat.id, action: 'typing', date: message.date)
       bot.api.sendPhoto(chat_id: message.chat.id, photo: certain_pkmn.image_link, date: message.date)
-      bot.api.sendMessage(chat_id: message.chat.id, text: "Name: #{certain_pkmn.name}\nNumber: #{certain_pkmn.number}\nType: #{certain_pkmn.types}\nDescription: #{certain_pkmn.description}", date: message.date)
+      bot.api.sendMessage(chat_id: message.chat.id, text: "Name: #{certain_pkmn.name}\nNumber: "\
+      "#{certain_pkmn.number}\nType: #{certain_pkmn.types}\nDescription: #{certain_pkmn.description}",
+                          date: message.date)
     else
       bot.api.sendMessage(chat_id: message.chat.id,
-                          text: "Hm.. I can't recall a first generation Pokemon with that name. Are you sure it's on this list? https://en.wikipedia.org/wiki/List_of_generation_I_Pok%C3%A9mon",
+                          text: "Hm.. I can't recall a first generation Pokemon with that name. Are you sure it's on "\
+                          'this list? https://en.wikipedia.org/wiki/List_of_generation_I_Pok%C3%A9mon',
                           date: message.date)
     end
   end
@@ -53,4 +59,3 @@ module Replies
                                       you need to use  /start,  /stop or /motivate")
   end
 end
-# rubocop:enable Layout/LineLength

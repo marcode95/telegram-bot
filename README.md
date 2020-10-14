@@ -17,10 +17,10 @@ Ruby implementation of a Telegram Bot giving out information about the first 151
 **Step 1**<br>
 Clone the repo to a local folder by inputting this command into your terminal<br>
 `git clone https://github.com/marcode95/telegram-bot`<br>
-and switch to the feature branch with this one<br>
-`git checkout feature`<br>
 **Step 2**<br>
 Run `cd telegram-bot`<br>
+and switch to the feature branch with<br>
+`git checkout feature`<br>
 **Step 3**<br>
 Run `bundle install` to install the gems from the `Gemfile`.<br>
 **Step 4**<br>
